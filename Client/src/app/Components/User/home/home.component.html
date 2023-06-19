@@ -1,0 +1,149 @@
+<div>
+  <div class="relative min-h-screen grid">
+    <div
+      class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 ">
+      <div
+        class="relative sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden text-white bg-no-repeat relative">
+
+        <!-- text animated -->
+        <div class="flex min-h-screen items-center justify-center font-bold text-white">
+          <div class=" text-center space-y-12">
+            <div class="text-center text-5xl font-bold"
+              style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+              Your Journey Starts Here
+              <div class="relative inline-grid grid-cols-1 grid-rows-1 gap-12 overflow-hidden">
+                <span class="animate-word col-span-full row-span-full">Book</span>
+                <span class="animate-word-delay-1 col-span-full row-span-full">Repeat</span>
+                <span class="animate-word-delay-2 col-span-full row-span-full">Enjoy</span>
+                <span class="animate-word-delay-3 col-span-full row-span-full">Travel</span>
+                <span class="animate-word-delay-4 col-span-full row-span-full">Ride</span>
+              </div>
+            </div>
+            <p class="text-white"
+              style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+              ~ Highway
+            </p>
+          </div>
+        </div>
+
+        <style>
+          @keyframes word {
+            0% {
+              transform: translateY(100%);
+            }
+
+            15% {
+              transform: translateY(-10%);
+              animation-timing-function: ease-out;
+            }
+
+            20% {
+              transform: translateY(0);
+            }
+
+            40%,
+            100% {
+              transform: translateY(-110%);
+            }
+          }
+
+          .animate-word {
+            animation: word 7s infinite;
+          }
+
+          .animate-word-delay-1 {
+            animation: word 7s infinite;
+            animation-delay: -1.4s;
+          }
+
+          .animate-word-delay-2 {
+            animation: word 7s infinite;
+            animation-delay: -2.8s;
+          }
+
+          .animate-word-delay-3 {
+            animation: word 7s infinite;
+            animation-delay: -4.2s;
+          }
+
+          .animate-word-delay-4 {
+            animation: word 7s infinite;
+            animation-delay: -5.6s;
+          }
+        </style>
+      </div>
+
+
+      <!-- component -->
+      <div class="flex h-screen flex-wrap items-center justify-center sm:w-full">
+
+        <div class="flex-shrink-0 m-6 relative overflow-hidden bg-rose-500 rounded-lg max-w-sm shadow-lg w-full">
+          <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none"
+            style="transform: scale(1.5); opacity: 0.1;">
+            <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+            <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+          </svg>
+          <div class="relative px-10 flex items-center justify-center">
+            <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+              style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+            </div>
+          </div>
+          <div class="relative text-white px-6 pb-6 mt-6">
+            <div class="mb-5 flex flex-col items-center">
+              <img src="https://www.svgrepo.com/show/490911/bus-bus.svg" alt="" width="150">
+              Confirm Your Travel!
+            </div>
+
+            <form [formGroup]="optionsForm" (ngSubmit)="onSubmit()" class="text-center">
+              <div class="text-lg">
+                <select
+                  class="rounded-xl border-none bg-rose-800 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md w-full"
+                  formControlName="City1" type="text" name="city1" value={{fromCity}} [(ngModel)]="fromCity">
+                  <option value="" disabled selected hidden>From</option>
+                  <option value={{item.city}} *ngFor="let item of allCities">{{item.city}}</option>
+                </select>
+              </div>
+
+              <button type="button" class="my-2 bg-teal-600 rounded-full px-2 py-1"
+                (click)="exchangeCity()">&#8593;&#8595;</button>
+
+              <div class="text-lg">
+                <select
+                  class="rounded-xl border-none bg-rose-800 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md w-full"
+                  formControlName="City2" type="text" name="city2" placeholder="To" value={{toCity}}
+                  [(ngModel)]="toCity">
+                  <option value="" disabled selected hidden>To</option>
+                  <option value={{item.city}} *ngFor="let item of allCities">{{item.city}}</option>
+                </select>
+              </div>
+
+              <div class="mt-10 text-lg">
+                <input
+                  class="rounded-xl border-none bg-rose-800 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md w-full"
+                  formControlName="Date" type="date" name="date" value={{date}} [(ngModel)]="date" />
+              </div>
+
+
+              <div class="mt-8 flex justify-center text-lg text-black">
+                <button type="submit"
+                  class="rounded-3xl bg-transparent px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-teal-600"
+                  (click)="scroll(target)">Search</button>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<div #target>
+  <app-options *ngIf="results" [fromCity]="results['details']['city1']" [toCity]="results['details']['city2']"
+    [date]="results['details']['date']" [allOptions]="results['result']"></app-options>
+</div>

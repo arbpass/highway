@@ -1,0 +1,12 @@
+D:\Web Development\ASP\Highway\Backend\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Web Development\ASP\Highway\Backend\Domain\bin\Debug\net7.0\Domain.dll
+D:\Web Development\ASP\Highway\Backend\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.dll
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Web Development\ASP\Highway\Backend\Domain\obj\Debug\net7.0\ref\Domain.dll
