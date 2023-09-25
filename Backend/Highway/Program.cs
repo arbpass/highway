@@ -17,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddScoped<IBusRepo, BusRepo>();
 builder.Services.AddScoped<ICityRepo, CityRepo>();
 builder.Services.AddScoped<ITripRepo, TripRepo>();
+builder.Services.AddScoped<ISeatsRepo, SeatsRepo>();
 
 // For Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()

@@ -15,6 +15,7 @@ export class AuthService {
       const decodedHeader = jwt_decode(token['token']);
       this.isLoggedIn = decodedHeader['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] == "User" ? true : false;
     } catch (error) {
+      localStorage.clear();
       this.isLoggedIn= false;
     }
   }

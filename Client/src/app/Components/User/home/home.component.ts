@@ -5,6 +5,7 @@ import { City } from 'src/app/Shared/Models/city.model';
 import { UserService } from 'src/app/Shared/user.service';
 import { formatDate } from '@angular/common';
 import { Options } from 'src/app/Shared/Models/options.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,10 @@ export class HomeComponent implements OnInit {
   constructor(public service: UserService, private router: Router, private fb: FormBuilder) { }
 
   fromCity = ""; toCity = ""; date = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+  currentDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
   allCities: any;
   results: any;
+  username: any;
 
   ngOnInit(): void {
     this.options();
@@ -24,10 +27,19 @@ export class HomeComponent implements OnInit {
       this.service.getCities().subscribe(
         res => {
           this.allCities = res['cities'] as City[];
-          console.log(this.allCities);
+          this.username = res['userName'];
+          console.log(res);
         },
         err => {
           // console.log(err);
+          localStorage.clear();
+          this.router.navigateByUrl('/login');
+          Swal.fire({
+            icon: 'error',
+            title: 'Gotch you!',
+            text: 'You are logged out because your session is expired!',
+            position: 'top'
+          })
         }
       );
     } catch (error) {

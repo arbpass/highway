@@ -1,0 +1,84 @@
+<div>
+  <div class="rounded-lg px-5 py-2">
+    <div class="text-base font-light text-white">
+      <span class="sm:text-2xl rounded-lg bg-gray-800 bg-opacity-50 px-2 shadow-lg backdrop-blur-md">Date:
+        {{this.route.snapshot.paramMap.get('date') | date}}</span>
+      <span class="sm:text-2xl font-thin"> &#8658; </span>
+      <span
+        class="sm:text-2xl rounded-lg bg-gray-800 bg-opacity-50 px-2 shadow-lg backdrop-blur-md">{{this.route.snapshot.paramMap.get('fromCity')}}</span>
+      <span class="sm:text-2xl font-extrabold"> &#8594; </span>
+      <span
+        class="sm:text-2xl rounded-lg bg-gray-800 bg-opacity-50 px-2 shadow-lg backdrop-blur-md">{{this.route.snapshot.paramMap.get('toCity')}}</span>
+      <span class="sm:text-2xl font-extrabold"> &#x2022; </span>
+      <span
+        class="sm:text-2xl rounded-lg bg-gray-800 bg-opacity-50 px-2 shadow-lg backdrop-blur-md">{{this.route.snapshot.paramMap.get('company')}}
+        - {{this.route.snapshot.paramMap.get('bus')}}</span>
+    </div>
+  </div>
+
+
+  <div
+    class="relative min-h-screen flex items-center justify-center bg-center py-12 px-2 sm:px-6 lg:px-4">
+    <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+
+    <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
+      <div class="max-w-md w-full p-5 bg-white rounded-xl shadow-lg z-10 flex items-center justify-center overflow-auto">
+        <p class="bg-lime-500 rounded-xl px-2 py-1 mx-1 text-white" *ngFor="let item of seatsSelected" [(ngModel)]="seatsSelected" ngDefaultControl>
+          {{item}}
+        </p>
+        <p *ngIf="seatsSelected.length == 0">Click on seat number to select! ₹{{fare}}/seat</p>
+        <button type="button" *ngIf="seatsSelected.length > 0" class="absolute bg-violet-500 text-white font-bold rounded-full transform translate-x-36 translate-y-8 shadow-lg px-2" (click)="bookFunction()">₹{{fare * seatsSelected.length}} &#10162;
+          </button>
+
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button id="LC1" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC1'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC1']}" [disabled]="seatsInfo['lC1']" (click)="addSeat('LC1')">LC1</button>
+        <button id="LC2" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC2'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC2']}" [disabled]="seatsInfo['lC2']" (click)="addSeat('LC2')">LC2</button>
+        <button id="LC3" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC3'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC3']}" [disabled]="seatsInfo['lC3']" (click)="addSeat('LC3')">LC3</button>
+        <button id="LC4" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC4'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC4']}" [disabled]="seatsInfo['lC4']" (click)="addSeat('LC4')">LC4</button>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button id="LC5" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC5'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC5']}" [disabled]="seatsInfo['lC5']" (click)="addSeat('LC5')">LC5</button>
+        <button id="LC6" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC6'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC6']}" [disabled]="seatsInfo['lC6']" (click)="addSeat('LC6')">LC6</button>
+        <button id="LC7" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC7'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC7']}" [disabled]="seatsInfo['lC7']" (click)="addSeat('LC7')">LC7</button>
+        <button id="LC8" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC8'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC8']}" [disabled]="seatsInfo['lC8']" (click)="addSeat('LC8')">LC8</button>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button id="LC9" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC9'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC9']}" [disabled]="seatsInfo['lC9']" (click)="addSeat('LC9')">LC9&nbsp;</button>
+        <button id="LC10" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC10'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC10']}" [disabled]="seatsInfo['lC10']" (click)="addSeat('LC10')">LC10</button>
+        <button id="LC11" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC11'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC11']}" [disabled]="seatsInfo['lC11']" (click)="addSeat('LC11')">LC11</button>
+        <button id="LC12" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC12'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC12']}" [disabled]="seatsInfo['lC12']" (click)="addSeat('LC12')">LC12</button>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button id="LC13" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC13'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC13']}" [disabled]="seatsInfo['lC13']" (click)="addSeat('LC13')">LC13</button>
+        <button id="LC14" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC14'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC14']}" [disabled]="seatsInfo['lC14']" (click)="addSeat('LC14')">LC14</button>
+        <button id="LC15" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC15'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC15']}" [disabled]="seatsInfo['lC15']" (click)="addSeat('LC15')">LC15</button>
+        <button id="LC16" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC16'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC16']}" [disabled]="seatsInfo['lC16']" (click)="addSeat('LC16')">LC16</button>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <button id="LC17" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC17'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC17']}" [disabled]="seatsInfo['lC17']" (click)="addSeat('LC17')">LC17</button>
+        <button id="LC18" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC18'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC18']}" [disabled]="seatsInfo['lC18']" (click)="addSeat('LC18')">LC18</button>
+        <button id="LC19" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC19'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC19']}" [disabled]="seatsInfo['lC19']" (click)="addSeat('LC19')">LC19</button>
+        <button id="LC20" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC20'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC20']}" [disabled]="seatsInfo['lC20']" (click)="addSeat('LC20')">LC20</button>
+
+      </div>
+      <div class="flex items-center justify-center">
+        <button id="LC21" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC21'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC21']}" [disabled]="seatsInfo['lC21']" (click)="addSeat('LC21')">LC21</button>
+        <button id="LC22" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC22'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC22']}" [disabled]="seatsInfo['lC22']" (click)="addSeat('LC22')">LC22</button>
+        <button id="LC23" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC23'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC23']}" [disabled]="seatsInfo['lC23']" (click)="addSeat('LC23')">LC23</button>
+        <button id="LC24" class="border mx-2 sm:mx-4 px-4 py-2 rounded-xl text-gray-600 font-bold hover:text-white" [ngClass]="{'border-rose-600 text-white bg-rose-600': seatsInfo['lC24'], 'border-lime-600 hover:bg-lime-600': !seatsInfo['lC24']}" [disabled]="seatsInfo['lC24']" (click)="addSeat('LC24')">LC24</button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+</div>

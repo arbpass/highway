@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/Shared/user.service';
 import jwt_decode from "jwt-decode";
 import { AuthService } from 'src/app/Shared/Auth/auth.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -33,6 +34,13 @@ export class RegisterComponent {
     this.service.postRegisterUser(this.registerForm.value).subscribe(
       res => {
         console.log(res);
+        Swal.fire({
+          icon: 'success',
+          title: 'Welcome to community!',
+          text: 'You are Registered successfully!',
+          position: 'top',
+          footer: 'Now go to&nbsp;<a href="/login" class="text-green-600 font-bold">Login</a>&nbsp;page!'
+        })
       },
       err => {
         console.log(err);

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './Shared/Auth/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,11 @@ export class AppComponent {
     localStorage.clear();
     this.logoutShow= false;
     this.router.navigateByUrl('/login');
+    Swal.fire({
+      icon: 'warning',
+      title: 'Come back soon...!',
+      text: 'You are Logged Out successfully!',
+      position: 'top'
+    })
   }
 }

@@ -1,11 +1,12 @@
-<div class="bg-gray-900 bg-cover py-2"
-  style="background-image:url('https://images.unsplash.com/photo-1594495894542-a46cc73e081a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80'); background-repeat: no-repeat;
+<div class="bg-gray-900 bg-cover py-2" style="background-image:url('https://images.unsplash.com/photo-1594495894542-a46cc73e081a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80'); background-repeat: no-repeat;
   background-attachment: fixed; background-position: center;">
 
 
-  <div *ngIf="logoutShow" class="flex items-center justify-center px-2 absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10">
+  <div *ngIf="logoutShow"
+    class="flex items-center justify-center px-2 absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10">
     <div class="relative rounded-lg border border-gray-200 bg-gray-900 bg-opacity-90 shadow-lg max-w-sm">
-      <button (click)="toggleLogout()" class="absolute -end-1 -top-1 rounded-full border border-gray-300 bg-gray-100 p-1">
+      <button (click)="toggleLogout()"
+        class="absolute -end-1 -top-1 rounded-full border border-gray-300 bg-gray-100 p-1">
         <span class="sr-only">Close</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
@@ -15,8 +16,7 @@
       </button>
 
       <div class="flex items-center gap-4 p-4">
-        <img alt="Women"
-          src="https://www.svgrepo.com/show/434136/loudly-crying-face.svg"
+        <img alt="Women" src="https://www.svgrepo.com/show/434136/loudly-crying-face.svg"
           class="h-12 w-12 rounded-lg object-cover" />
 
         <div>
@@ -40,6 +40,8 @@
     <nav
       class="flex items-center justify-center h-12 w-fit rounded-full bg-gray-800 bg-opacity-50 shadow-lg backdrop-blur-md">
       <img *ngIf="auth.isLoggedIn" routerLink="/" class="mx-5" src="https://www.svgrepo.com/show/313140/home.svg"
+        width="30" />
+      <img *ngIf="auth.isLoggedIn" routerLink="/trips" class="mx-5" src="https://www.svgrepo.com/show/162975/aeroplane.svg"
         width="30" />
       <img *ngIf="!auth.isLoggedIn" routerLink="/login" class="mx-5" src="https://www.svgrepo.com/show/243911/login.svg"
         width="30" />

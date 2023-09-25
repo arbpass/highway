@@ -10,6 +10,8 @@ import { AboutComponent } from './Components/User/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OptionsComponent } from './Components/User/home/options/options.component';
+import { BookingComponent } from './Components/User/booking/booking.component';
+import { TripComponent } from './Components/User/trip/trip.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { OptionsComponent } from './Components/User/home/options/options.compone
     HomeComponent,
     RegisterComponent,
     AboutComponent,
-    OptionsComponent
+    OptionsComponent,
+    BookingComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,

@@ -88,6 +88,106 @@ namespace Infrastructure.Migrations
                     b.ToTable("City");
                 });
 
+            modelBuilder.Entity("Domain.Models.SeatsDb", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BusComapny")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BusName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LC1")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC10")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC11")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC12")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC13")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC14")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC15")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC16")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC17")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC18")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC19")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC2")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC20")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC21")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC22")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC23")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC24")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC3")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC4")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC5")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC6")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC7")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC8")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LC9")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Seats");
+                });
+
             modelBuilder.Entity("Domain.Models.TripDb", b =>
                 {
                     b.Property<int>("Id")
@@ -96,7 +196,11 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Bus")
+                    b.Property<string>("BusCompany")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BusName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -111,11 +215,19 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<string>("Seats")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("To")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

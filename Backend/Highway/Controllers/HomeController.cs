@@ -30,7 +30,9 @@ namespace Highway.Controllers
         public async Task<IActionResult> Home()
         {
             var cities = _appDbContext.City;
-            return Ok(new { cities });
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            return Ok(new { cities, user.UserName });
         }
 
         [Route("distance/{city1}/{city2}")]
@@ -75,24 +77,37 @@ namespace Highway.Controllers
 
         [Route("bookTrip")]
         [HttpPost]
-        public async Task<IActionResult> BookTrip(string city1, string city2, string date, string busId, int price)
+        public async Task<IActionResult> BookTrip([FromBody] TripDb data)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
             TripDb temp = new TripDb();
-            temp.Bus = busId;
-            temp.From = city1;
-            temp.To = city2;
-            temp.Date = date;
-            temp.Price = price;
+            temp.BusName = data.BusName;
+            temp.BusCompany = data.BusCompany;
+            temp.Seats = data.Seats;
+            temp.From = data.From;
+            temp.To = data.To;
+            temp.Date = data.Date;
+            temp.Price = data.Price;
             temp.UserId = user.Id;
+            temp.Username =  user.UserName;
 
             _appDbContext.Trip.Add(temp);
             _appDbContext.SaveChanges();
             
-            return Ok("Trip Booked Successfully!!");
+            return Ok(temp);
         }
 
+
+        [Route("Trips")]
+        [HttpGet]
+        public async Task<IActionResult> Trips()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            
+            var trips = _appDbContext.Trip.Where(x => x.UserId == user.Id);
+            return Ok(new { trips });
+        }
 
     }
 }

@@ -15,6 +15,7 @@ export class OptionsComponent implements OnInit{
   distance: any = 0;
 
   ngOnInit(): void {
+    console.log("NGONOIT run");
     this.distanceCal();
   }
 

@@ -24,5 +24,6 @@ namespace Infrastructure.Context
         public DbSet<BusDb> Bus { get; set; }
         public DbSet<CityDb> City { get; set; }
         public DbSet<TripDb> Trip { get; set; }
+        public DbSet<SeatsDb> Seats { get; set; }
     }
 }

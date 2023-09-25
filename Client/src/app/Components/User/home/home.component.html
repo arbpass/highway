@@ -8,8 +8,7 @@
         <!-- text animated -->
         <div class="flex min-h-screen items-center justify-center font-bold text-white">
           <div class=" text-center space-y-12">
-            <div class="text-center text-5xl font-bold"
-              style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+            <div class="text-center text-5xl font-bold">
               Your Journey Starts Here
               <div class="relative inline-grid grid-cols-1 grid-rows-1 gap-12 overflow-hidden">
                 <span class="animate-word col-span-full row-span-full">Book</span>
@@ -19,8 +18,7 @@
                 <span class="animate-word-delay-4 col-span-full row-span-full">Ride</span>
               </div>
             </div>
-            <p class="text-white"
-              style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+            <p class="text-white">
               ~ Highway
             </p>
           </div>
@@ -91,7 +89,7 @@
           <div class="relative text-white px-6 pb-6 mt-6">
             <div class="mb-5 flex flex-col items-center">
               <img src="https://www.svgrepo.com/show/490911/bus-bus.svg" alt="" width="150">
-              Confirm Your Travel!
+              Confirm Your Travel {{username | uppercase}}!
             </div>
 
             <form [formGroup]="optionsForm" (ngSubmit)="onSubmit()" class="text-center">
@@ -120,7 +118,7 @@
               <div class="mt-10 text-lg">
                 <input
                   class="rounded-xl border-none bg-rose-800 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md w-full"
-                  formControlName="Date" type="date" name="date" value={{date}} [(ngModel)]="date" />
+                  formControlName="Date" type="date" name="date" value={{date}} min={{currentDate}} [(ngModel)]="date" />
               </div>
 
 
